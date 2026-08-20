@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>devboard // posts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="scanline"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">&gt;_</span>
+      <span class="brand-text">devboard</span>
+    </div>
+    <div class="status" id="status">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">connecting…</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="composer" aria-label="Create a post">
+      <div class="composer-head">
+        <span class="prompt-glyph">$</span>
+        <span class="composer-title">new_post</span>
+      </div>
+      <form id="postForm" class="composer-form">
+        <input
+          id="usernameInput"
+          class="field field-user"
+          type="text"
+          placeholder="username"
+          autocomplete="off"
+          required
+        />
+        <textarea
+          id="contentInput"
+          class="field field-content"
+          placeholder="what are you stuck on?"
+          rows="2"
+          required
+        ></textarea>
+        <button type="submit" class="btn-post">
+          post <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="feed-head">
+      <h1>feed</h1>
+      <span class="feed-count" id="feedCount">0 entries</span>
+    </section>
+
+    <section id="feed" class="feed">
+      <!-- posts injected here -->
+    </section>
+
+    <p id="emptyState" class="empty-state" hidden>
+      no posts yet — be the first to write one above.
+    </p>
+
+  </main>
+
+  <div id="editOverlay" class="overlay" hidden>
+    <div class="edit-card">
+      <div class="edit-head">
+        <span class="prompt-glyph">$</span>
+        <span>edit_post <span id="editId"></span></span>
+      </div>
+      <input id="editUsername" class="field field-user" type="text" />
+      <textarea id="editContent" class="field field-content" rows="3"></textarea>
+      <div class="edit-actions">
+        <button id="editCancel" class="btn-ghost" type="button">cancel</button>
+        <button id="editSave" class="btn-post" type="button">save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
